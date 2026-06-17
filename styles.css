@@ -207,6 +207,7 @@ header {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  padding-left: var(--space-md);
 }
 
 .wordmark .first-name { color: var(--on-dark); }
@@ -465,6 +466,7 @@ footer {
   transition: transform 0.2s, box-shadow 0.2s;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .card:hover {
@@ -494,6 +496,13 @@ footer {
   align-items: center;
   gap: 0.25rem;
   min-height: 44px;
+}
+
+.card-link::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
 }
 
 .card-link::after {
@@ -599,4 +608,40 @@ footer {
   font-weight: 700;
   margin-top: var(--space-sm);
   color: var(--navy-800);
+}
+
+/* Back to Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 48px;
+  height: 48px;
+  background: var(--navy-800);
+  color: var(--gold-500);
+  border: 2px solid var(--gold-500);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s, background-color 0.2s, opacity 0.3s;
+  z-index: 100;
+}
+
+.back-to-top:hover {
+  background: var(--navy-700);
+  transform: translateY(-4px);
+}
+
+.back-to-top[hidden] {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .back-to-top {
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
 }

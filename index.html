@@ -10,6 +10,8 @@
   <script>
     document.documentElement.classList.add('js-enabled');
     document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.current-year').forEach(el => el.textContent = new Date().getFullYear());
+
       const toggle = document.querySelector('.nav-toggle');
       const menu = document.querySelector('.nav-menu');
       if (toggle && menu) {
@@ -24,6 +26,20 @@
             menu.setAttribute('data-visible', 'false');
             toggle.focus();
           }
+        });
+      }
+
+      const backToTop = document.getElementById('back-to-top');
+      if (backToTop) {
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 300) {
+            backToTop.removeAttribute('hidden');
+          } else {
+            backToTop.setAttribute('hidden', '');
+          }
+        });
+        backToTop.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         });
       }
     });
@@ -240,8 +256,14 @@
         This site is for informational purposes only and is not a contract for insurance. Coverage is subject to terms and eligibility.
         <!-- Proudly affiliated with The Bullock Agency. -->
       </p>
-      <p style="margin-top: var(--space-lg);">&copy; 2024 Lifetime Health Solutions. All rights reserved. Independent Insurance Agent.</p>
+      <p style="margin-top: var(--space-lg);">&copy; <span class="current-year">2024</span> Lifetime Health Solutions. All rights reserved. Independent Insurance Agent.</p>
     </div>
   </footer>
+
+  <button id="back-to-top" class="back-to-top" aria-label="Back to top" hidden>
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
 </body>
 </html>
