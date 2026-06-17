@@ -126,6 +126,14 @@ img, picture, svg {
   display: block;
 }
 
+.headshot {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+}
+
 /* Accessibility */
 .skip-link {
   position: absolute;
