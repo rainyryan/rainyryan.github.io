@@ -134,6 +134,24 @@ img, picture, svg {
   border-radius: var(--border-radius);
 }
 
+.full-width-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.hero-image-divider {
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--surface-soft);
+}
+
+.hero-image-divider .full-width-img {
+  max-height: 400px;
+  object-fit: cover;
+  object-position: center;
+}
+
 /* Accessibility */
 .skip-link {
   position: absolute;
